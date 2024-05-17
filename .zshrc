@@ -12,6 +12,11 @@ if [ ! -d "$ZINIT_HOME" ]; then
         git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
 fi
 
+if [ ! -d ~/.fzf ]; then
+  git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+  ~/.fzf/install --no-zsh --no-bash --no-fish --key-bindings --completion --no-update-rc
+fi
+
 source "${ZINIT_HOME}/zinit.zsh"
 
 zinit ice depth=1; zinit light romkatv/powerlevel10k
